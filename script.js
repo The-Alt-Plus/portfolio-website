@@ -151,9 +151,24 @@ function initMobileMenu() {
   const btn = document.getElementById('mobileMenuBtn');
   const nav = document.getElementById('siteNav');
   if (!btn || !nav) return;
-  btn.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
+
+  const host = btn.closest('.top-nav, .site-header');
+  const setOpen = open => {
+    nav.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', String(open));
+    if (host) host.classList.toggle('menu-open', open);
+  };
+
+  btn.addEventListener('click', () => {
+    setOpen(!nav.classList.contains('open'));
+  });
+
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && nav.classList.contains('open')) setOpen(false);
   });
 }
 
