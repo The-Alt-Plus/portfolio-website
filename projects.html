@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work Catalog — Tomás Mena L.</title>
+  <meta name="description" content="Complete catalog of 9 computational design, Digital Twin, BIM automation, and research systems by Tomás Mena.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-group">
+        <a href="index.html" class="wordmark">
+          <span class="wm-muted">Tomás</span><span class="wm-strong">MENA</span>
+        </a>
+        <div class="status-pill">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>BERLIN // EU REMOTE</span>
+        </div>
+      </div>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+        <a href="index.html">PORTFOLIO</a>
+        <a href="index.html#selected-work">TECHNICAL WORK</a>
+        <a href="projects.html" class="active">ALL WORKS (10)</a>
+        <a href="about.html">ABOUT</a>
+        <a href="alt-plus.html" class="nav-bridge">THE ALT+ ↗</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="toggle-btn" id="modeToggle">ON / OFF</button>
+        <button type="button" class="cv-trigger" data-open-cv>
+          <span>CV / PDF</span>
+          <span class="cv-badge">3</span>
+        </button>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="siteNav">MENU</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero band--dark">
+      <div class="container">
+        <p class="eyebrow">SYSTEMS CATALOG // 2018—2026</p>
+        <h1 class="hero-title" style="font-size: clamp(34px, 4vw, 50px);">All Built &amp; Research Systems</h1>
+        <p class="hero-subtitle" style="margin-top: 12px;">
+          Filter by discipline track or inspect any project to view its Problem → Computational System → Measurable Output specification.
+        </p>
+
+        <div class="filter-bar" role="tablist" aria-label="Filter projects by track">
+          <button type="button" class="filter-btn active" data-filter="all">[01] ALL WORKS (10)</button>
+          <button type="button" class="filter-btn" data-filter="production">[02] TECHNICAL &amp; BUILDING SYSTEMS</button>
+          <button type="button" class="filter-btn" data-filter="digital-twin">[03] DIGITAL TWIN &amp; PO</button>
+          <button type="button" class="filter-btn" data-filter="research">[04] THE ALT+ // RESEARCH, ART &amp; SOUND</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="band band--surface">
+      <div class="container">
+        <div class="catalog-grid">
+          <!-- 01 -->
+          <article class="project-card" data-category="production digital-twin">
+            <div class="project-media">
+              <img src="assets/project-thumb-1.jpg" alt="Priedemann Digital Twin">
+              <span class="project-tag-overlay">2023—PRESENT // BERLIN</span>
+            </div>
+            <div class="project-body">
+              <span class="project-meta">DIGITAL TWIN // PRODUCT OWNER</span>
+              <h3 class="project-title">Priedemann Digital Twin &amp; AEC Tools</h3>
+              <p class="project-desc">Product Owner for custom parametric 3D construction tools, Agile dev-engineering workflows, and Digital Twin data structures.</p>
+              <div class="project-footer">
+                <span class="mono" style="color: var(--text-muted);">PYTHON · AGILE · BIM</span>
+                <button type="button" class="inspect-btn" data-inspect="priedemann">INSPECT SPEC →</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 02 -->
+          <article class="project-card" data-category="production">
+            <div class="project-media">
+              <img src="assets/project-thumb-2.jpg" alt="Kula Tower Belgrade">
+              <span class="project-tag-overlay">SCHUECO // BELGRADE</span>
+            </div>
+            <div class="project-body">
+              <span class="project-meta">BIM INTEROPERABILITY // PANELIZATION</span>
+              <h3 class="project-title">Kula Tower, Belgrade</h3>
+              <p class="project-desc">Revit-to-Grasshopper coordinate interoperability and double-curved high-rise façade panelization rationalization.</p>
+              <div class="project-footer">
+                <span class="mono" style="color: var(--text-muted);">REVIT ↔ GH · PYTHON</span>
+                <button type="button" class="inspect-btn" data-inspect="kula">INSPECT SPEC →</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 03 -->
+          <article class="project-card" data-category="production digital-twin">
+            <div class="project-media">
+              <img src="assets/project-thumb-3.jpg" alt="ClipHut Timber System">
+              <span class="project-tag-overlay">METSÄWOOD AWARD // 1:1</span>
+            </div>
+            <div class="project-body">
+              <span class="project-meta">DIGITAL PREFABRICATION // FEA + CNC</span>
+              <h3 class="project-title">ClipHut: Open-Source Timber System</h3>
+              <p class="project-desc">Parametric timber kit with Karamba3D FEA structural simulation, 84-sheet CNC nesting, and web configurator architecture.</p>
+              <div class="project-footer">
+                <span class="mono" style="color: var(--text-muted);">KARAMBA3D · CNC</span>
+                <button type="button" class="inspect-btn" data-inspect="cliphut">INSPECT SPEC →</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 04 -->
+          <article class="project-card" data-category="production">
+            <div class="project-media">
+              <img src="assets/hero/hero.png" alt="Grid 2 Shell System Schueco">
+              <span class="project-tag-overlay">SCHUECO // BIELEFELD</span>
+            </div>
+            <div class="project-body">
+              <span class="project-meta">MESH RESTRUCTURING // PYTHON</span>
+              <h3 class="project-title">Grid 2 Shell — Schueco Welcome Forum</h3>
+              <p class="project-desc">Python unstructured mesh restructuring, automated façade profile placement, and fabrication cut-angle calculation.</p>
+              <div class="project-footer">
+                <span class="mono" style="color: var(--text-muted);">PYTHON · RHINO</span>
+                <button type="button" class="inspect-btn" data-inspect="grid2">INSPECT SPEC →</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 05 -->
+          <article class="project-card" data-category="digital-twin research">
+            <div class="project-media">
+              <div class="project-media-svg" aria-hidden="true">
+                <svg width="100%" height="100%" viewBox="0 0 320 180" fill="none">
+                  <path d="M20 130 Q80 50 160 95 T300 60" stroke="#00e5ff" stroke-width="1.5"/>
+                  <path d="M20 145 Q90 85 160 115 T300 95" stroke="#88888e" stroke-width="1" stroke-dasharray="4 4"/>
+                  <circle cx="160" cy="95" r="5" fill="#ff5500"/>
+                  <text x="20" y="30" fill="#00e5ff" font-family="Geist Mono, monospace" font-size="9">O2 STREAM // WEBSOCKET</text>
+                </svg>
+              </div>
+              <span class="project-tag-overlay">UMARTS // UMEÅ UNIV.</span>
+            </div>
+            <div class="project-body">
+              <span class="project-meta">LIVE IOT DIGITAL TWIN</span>
+              <h3 class="project-title">Winter Garden — Terrarium</h3>
+              <p class="project-desc">Generative design &amp; digital fabrication linked to a live IoT sensor-to-Digital Twin WebSocket pipeline streaming O₂ data into Grasshopper.</p>
+              <div class="project-footer">
+                <span class="mono" style="color: var(--text-muted);">IOT · WEBSOCKETS · GH</span>
+                <button type="button" class="inspect-btn" data-inspect="terrarium">INSPECT SPEC →</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 06 -->
+          <article class="project-card" data-category="digital-twin research">
+            <div class="project-media">
+              <div class="project-media-svg" aria-hidden="true">
+                <svg width="100%" height="100%" viewBox="0 0 320 180" fill="none">
+                  <polygon points="80,45 145,35 165,95 115,135 65,105" stroke="#ededed" stroke-width="1.2"/>
+                  <line x1="165" y1="95" x2="215" y2="95" stroke="#ff5500" stroke-width="1.5" stroke-dasharray="3 3"/>
+                  <rect x="215" y="55" width="60" height="80" stroke="#00e5ff" stroke-width="1.4"/>
+                  <text x="20" y="30" fill="#ff5500" font-family="Geist Mono, monospace" font-size="9">3D SCAN → CIRCULAR ASSET</text>
+                </svg>
+              </div>
+              <span class="project-tag-overlay">PARIS // NOV 2025</span>
+            </div>
+            <div class="project-body">
+              <span class="project-meta">CIRCULAR DIGITAL TWIN</span>
+              <h3 class="project-title">ReMaterializing Data</h3>
+              <p class="project-desc">Master Class at École Spéciale d'Architecture: digitizing discarded materials via 3D scanning into structured computational design assets.</p>
+              <div class="project-footer">
+                <span class="mono" style="color: var(--text-muted);">3D SCAN · CIRCULARITY</span>
+                <button type="button" class="inspect-btn" data-inspect="rematerializing">INSPECT SPEC →</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 07 -->
+          <article class="project-card" data-category="research">
+            <div class="project-media">
+              <div class="project-media-svg" aria-hidden="true">
+                <svg width="100%" height="100%" viewBox="0 0 320 180" fill="none">
+                  <ellipse cx="160" cy="95" rx="115" ry="44" stroke="#88888e" stroke-width="1"/>
+                  <ellipse cx="160" cy="95" rx="82" ry="30" stroke="#00e5ff" stroke-width="1.2"/>
+                  <ellipse cx="160" cy="95" rx="46" ry="16" stroke="#ff5500" stroke-width="1.4"/>
+                  <text x="20" y="30" fill="#00e5ff" font-family="Geist Mono, monospace" font-size="9">GIS TOPOLOGY // CNC</text>
+                </svg>
+              </div>
+              <span class="project-tag-overlay">MILAN 2025 // VENICE 2021</span>
+            </div>
+            <div class="project-body">
+              <span class="project-meta">BIENNALE &amp; TRIENNALE EXHIBITIONS</span>
+              <h3 class="project-title">Liminal Phantoms &amp; Cultural Capital</h3>
+              <p class="project-desc">Multi-scalar GIS mesh modeling, rationalization algorithms, and hybrid 3D printing / CNC sculpting exhibited internationally.</p>
+              <div class="project-footer">
+                <span class="mono" style="color: var(--text-muted);">GIS · CNC · 3D PRINT</span>
+                <button type="button" class="inspect-btn" data-inspect="liminal">INSPECT SPEC →</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 08 -->
+          <article class="project-card" data-category="production research">
+            <div class="project-media">
+              <div class="project-media-svg" aria-hidden="true">
+                <svg width="100%" height="100%" viewBox="0 0 320 180" fill="none">
+                  <path d="M40 135 C90 45, 230 45, 280 135" stroke="#ff5500" stroke-width="1.6"/>
+                  <path d="M60 135 C105 65, 215 65, 260 135" stroke="#00e5ff" stroke-width="1.2"/>
+                  <line x1="40" y1="135" x2="280" y2="135" stroke="#88888e"/>
+                  <text x="20" y="30" fill="#ff5500" font-family="Geist Mono, monospace" font-size="9">DYNAMIC RELAXATION // FEA</text>
+                </svg>
+              </div>
+              <span class="project-tag-overlay">COMPETITION &amp; KUZO</span>
+            </div>
+            <div class="project-body">
+              <span class="project-meta">FORM FINDING // FEA SCULPTING</span>
+              <h3 class="project-title">Vilnius Concert Hall &amp; Puercoespín</h3>
+              <p class="project-desc">Dynamic Relaxation form-finding algorithms for timber-metal roof-façade envelopes and Karamba3D stress/displacement sculpting.</p>
+              <div class="project-footer">
+                <span class="mono" style="color: var(--text-muted);">DR ENGINE · KARAMBA3D</span>
+                <button type="button" class="inspect-btn" data-inspect="vilnius">INSPECT SPEC →</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 09 -->
+          <article class="project-card" data-category="research">
+            <div class="project-media">
+              <div class="project-media-svg" aria-hidden="true">
+                <svg width="100%" height="100%" viewBox="0 0 320 180" fill="none">
+                  <circle cx="95" cy="95" r="24" stroke="#00e5ff" stroke-width="1.2"/>
+                  <circle cx="165" cy="70" r="18" stroke="#ff5500" stroke-width="1.2"/>
+                  <circle cx="225" cy="110" r="28" stroke="#ededed" stroke-width="1.2"/>
+                  <line x1="118" y1="86" x2="148" y2="76" stroke="#88888e"/>
+                  <line x1="181" y1="79" x2="200" y2="96" stroke="#88888e"/>
+                  <text x="20" y="30" fill="#00e5ff" font-family="Geist Mono, monospace" font-size="9">AI AGENTS // MULTI-SCALAR</text>
+                </svg>
+              </div>
+              <span class="project-tag-overlay">ARIZONA 2025 // DIGITALFUTURES</span>
+            </div>
+            <div class="project-body">
+              <span class="project-meta">AI &amp; DESIGN RESEARCH</span>
+              <h3 class="project-title">Experimental Landscapes: AI &amp; Design</h3>
+              <p class="project-desc">Guest lecture at University of Arizona &amp; DigitalFUTURES workshop exploring generative AI and multi-agent systems across scales.</p>
+              <div class="project-footer">
+                <span class="mono" style="color: var(--text-muted);">GEN AI · AGENTS</span>
+                <button type="button" class="inspect-btn" data-inspect="ai_landscapes">INSPECT SPEC →</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 10: Sonic Wearable Object -->
+          <article class="project-card" data-category="research">
+            <div class="project-media">
+              <div class="project-media-svg" aria-hidden="true">
+                <svg width="100%" height="100%" viewBox="0 0 320 180" fill="none">
+                  <circle cx="160" cy="92" r="56" stroke="#ff5500" stroke-width="1.6"/>
+                  <circle cx="160" cy="92" r="38" stroke="#ededed" stroke-width="1.2"/>
+                  <circle cx="160" cy="92" r="22" stroke="#00e5ff" stroke-width="1.2" stroke-dasharray="3 3"/>
+                  <text x="20" y="30" fill="#ff5500" font-family="Geist Mono, monospace" font-size="9">SONIC WEARABLE // OBJECT</text>
+                </svg>
+              </div>
+              <span class="project-tag-overlay">THE ALT+ // PRODUCT</span>
+            </div>
+            <div class="project-body">
+              <span class="project-meta">SOUND &amp; RING PRODUCT</span>
+              <h3 class="project-title">Sonic Wearable Object</h3>
+              <p class="project-desc">Experiential sound and ring product by The Alt Plus translating tactile gesture, wearable geometry, and acoustic resonance.</p>
+              <div class="project-footer">
+                <span class="mono" style="color: var(--text-muted);">SOUND · PRODUCT · CRAFT</span>
+                <button type="button" class="inspect-btn" data-inspect="sonic_object">INSPECT SPEC →</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Co-creation prompt (Mirrors /shop/ bottom prompt) -->
+  <footer class="band band--dark" id="contact" style="padding-bottom: 36px;">
+    <div class="container">
+      <div class="cta-strip">
+        <div>
+          <p class="eyebrow eyebrow--orange">CUSTOM WALKTHROUGH</p>
+          <h2>Looking for a specific Rhino, Python, or Digital Twin demo?</h2>
+          <p>Tell me which technical workflow or role track you're evaluating and I'll share targeted code samples, Grasshopper definitions, or a live walkthrough.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="mailto:tomasmena@gmail.com?subject=Portfolio%20Walkthrough%20Request" class="btn-primary">REQUEST A WALKTHROUGH →</a>
+          <button type="button" class="btn-secondary" data-copy-email>COPY TOMASMENA@GMAIL.COM</button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 TOMÁS MENA L. — BERLIN, GERMANY</span>
+        <span><a href="index.html">← BACK TO STORYLINE HOME</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shared CV Drawer & Spec Modal -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cv-drawer" id="cvDrawer" aria-label="CV and Portfolio Downloads">
+    <div class="drawer-head">
+      <div>
+        <span class="mono" style="color: var(--accent-cyan);">DIRECT ASSETS // 03 FILES</span>
+        <h3 style="margin: 4px 0 0; font-family: var(--font-display);">Download Package</h3>
+      </div>
+      <button type="button" class="toggle-btn" id="closeCvDrawer">CLOSE [ESC]</button>
+    </div>
+    <a class="asset-card" href="assets/docs/Tomas_Mena_CV_DigitalTwin_PO.pdf" target="_blank">
+      <span class="mono" style="color: var(--accent-orange);">01 // TECHNICAL &amp; PRODUCT OWNER</span>
+      <strong>CV — Digital Twin, PO &amp; AEC Dev</strong>
+      <span>Updated Nov 2026 · Digital Twin Lead, Product Owner &amp; Software Automation.</span>
+    </a>
+    <a class="asset-card" href="assets/docs/Tomas_Mena_CV_Computational.pdf" target="_blank">
+      <span class="mono" style="color: var(--accent-cyan);">02 // COMPUTATIONAL &amp; PARAMETRIC</span>
+      <strong>CV — Computational Design &amp; BIM</strong>
+      <span>Updated Jun 2026 · Computational Design, Geometry Specialist &amp; Research.</span>
+    </a>
+    <a class="asset-card" href="assets/docs/Tomas_Mena_Portfolio.pdf" target="_blank">
+      <span class="mono" style="color: var(--text-muted);">03 // SELECTED WORKS PDF (5.5 MB)</span>
+      <strong>Full Computational Portfolio</strong>
+      <span>10-page visual dossier covering façades, FEA, automation, and fabrication.</span>
+    </a>
+  </aside>
+
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="spec-modal" id="specModal" role="dialog" aria-modal="true" aria-labelledby="specModalTitle">
+    <div class="modal-header">
+      <span class="mono" data-spec-eyebrow style="color: var(--accent-cyan);">SYSTEM SPEC</span>
+      <button type="button" class="toggle-btn" id="closeSpecModal">CLOSE [ESC]</button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <h2 id="specModalTitle" data-spec-title style="font-family: var(--font-display); font-size: clamp(24px, 3vw, 34px); margin: 0 0 8px;"></h2>
+        <p class="mono" data-spec-meta style="color: var(--text-muted); margin: 0;"></p>
+      </div>
+      <p data-spec-thesis style="margin: 0; font-size: 16.5px; color: var(--text-primary); border-left: 2px solid var(--accent-orange); padding-left: 16px;"></p>
+      <div class="spec-grid">
+        <div class="spec-step"><h4>01 // PROBLEM</h4><p data-spec-problem></p></div>
+        <div class="spec-step"><h4>02 // COMPUTATIONAL SYSTEM</h4><p data-spec-system></p></div>
+        <div class="spec-step"><h4>03 // MEASURABLE OUTPUT</h4><p data-spec-output></p></div>
+      </div>
+      <div>
+        <span class="mono" style="display: block; margin-bottom: 10px; color: var(--text-muted);">TECHNICAL STACK</span>
+        <div class="tag-cloud" data-spec-stack></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px;">
+        <a href="assets/docs/Tomas_Mena_Portfolio.pdf" target="_blank" class="btn-primary">OPEN FULL PORTFOLIO PDF ↗</a>
+        <a href="mailto:tomasmena@gmail.com?subject=Project%20Walkthrough%20Request" class="btn-secondary">REQUEST LIVE WALKTHROUGH</a>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>

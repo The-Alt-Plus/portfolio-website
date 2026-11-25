@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tomás Mena L. — Computational Designer &amp; Digital Twin Portfolio</title>
+  <meta name="description" content="Personal technical portfolio of Tomás Mena — Architect, Computational Designer & Digital Twin Product Owner in Berlin. Parametric building systems, Rhino/Grasshopper, Python, and BIM automation.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ====================================================================
+       STICKY HEADER — Personal Technical Portfolio + Bridge to The Alt Plus
+       ==================================================================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand-group">
+        <a href="index.html" class="wordmark" aria-label="Tomás Mena Home">
+          <span class="wm-muted">Tomás</span><span class="wm-strong">MENA</span>
+        </a>
+        <div class="status-pill" aria-label="Location">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>BERLIN // TECHNICAL PORTFOLIO</span>
+        </div>
+      </div>
+
+      <nav class="site-nav" id="siteNav" aria-label="Main navigation">
+        <a href="index.html" class="active">PORTFOLIO</a>
+        <a href="#selected-work">TECHNICAL WORK</a>
+        <a href="#experience">EXPERIENCE</a>
+        <a href="projects.html">ALL WORKS (10)</a>
+        <a href="about.html">ABOUT</a>
+        <a href="alt-plus.html" class="nav-bridge">THE ALT+ ↗</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="toggle-btn" id="modeToggle" title="Toggle Dark / Swiss Light Mode">ON / OFF</button>
+        <button type="button" class="cv-trigger" data-open-cv aria-label="Open CV and Portfolio Downloads">
+          <span>CV / PDF</span>
+          <span class="cv-badge">3</span>
+        </button>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="siteNav">MENU</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================================================================
+         1. COMPACT AUTHOR HERO (Work-First, First-Person, Zero Agency Pitch)
+         ==================================================================== -->
+    <section class="band band--dark" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">TOMÁS MENA LOZADA // BERLIN, GERMANY</p>
+          <div class="hero-callout">
+            <h1 class="hero-title">Computational Designer &amp; Digital Twin Lead.</h1>
+          </div>
+          <p class="hero-subtitle">
+            Architect and AEC automation engineer with 7+ years in production environments at Priedemann and Schueco—developing parametric building systems, Python geometry tools, and Rhino–Grasshopper–Revit pipelines.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#selected-work" class="btn-primary">SELECTED TECHNICAL WORK ↓</a>
+            <button type="button" class="btn-secondary" data-open-cv>DOWNLOAD CV &amp; PORTFOLIO</button>
+          </div>
+        </div>
+
+        <div class="hero-viewport">
+          <div class="viewport-bar">
+            <span class="mono" style="color: var(--accent-cyan);">PARAMETRIC BUILDING SYSTEMS // LIVE MESH</span>
+            <span class="mono" style="color: var(--text-muted);">RHINO · GRASSHOPPER · PYTHON</span>
+          </div>
+          <div class="viewport-canvas-wrap">
+            <canvas id="parametricCanvas" aria-label="Interactive parametric wireframe mesh"></canvas>
+          </div>
+          <div class="viewport-bar">
+            <span class="mono" style="color: var(--text-muted);">[DR.01] // MOVE CURSOR TO DEFORM TOPOLOGY</span>
+            <span class="mono" style="color: var(--accent-orange);">INTERACTIVE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         2. SELECTED TECHNICAL & BUILDING SYSTEMS (Immediate Proof Grid)
+         ==================================================================== -->
+    <section class="band band--surface" id="selected-work">
+      <div class="container">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 18px; margin-bottom: 36px;">
+          <div>
+            <p class="eyebrow">01 // SELECTED TECHNICAL WORK (2018—2026)</p>
+            <h2 class="section-title" style="margin-bottom: 6px;">Parametric Solutions &amp; Building Systems</h2>
+            <p class="section-lead">Production façades, Digital Twin software ownership, BIM interoperability, and CNC timber prefabrication.</p>
+          </div>
+          <a href="projects.html" class="btn-secondary">VIEW FULL 10-PROJECT INDEX →</a>
+        </div>
+
+        <div class="tech-grid">
+          <!-- Technical Project 1 -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project-thumb-1.jpg" alt="Priedemann Digital Twin and Custom AEC Tools">
+              <span class="project-tag-overlay">2023—PRESENT // PRIEDEMANN BERLIN</span>
+            </div>
+            <div class="project-body">
+              <span class="project-meta">PRODUCT OWNER // DIGITAL TWIN &amp; AEC TOOLS</span>
+              <h3 class="project-title">Priedemann Digital Twin &amp; Parametric 3D Tools</h3>
+              <p class="project-desc">Product Owner for custom software tools generating complex parametric façade systems; designed Agile frameworks and Digital Twin data structures bridging devs and engineers.</p>
+              <div class="project-footer">
+                <span class="mono" style="color: var(--text-muted);">PYTHON · AGILE PO · BIM DATA</span>
+                <button type="button" class="inspect-btn" data-inspect="priedemann">INSPECT SPEC →</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Technical Project 2 -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project-thumb-2.jpg" alt="Kula Tower Belgrade Double-Curvature Panelization">
+              <span class="project-tag-overlay">SCHUECO // BELGRADE</span>
+            </div>
+            <div class="project-body">
+              <span class="project-meta">BIM INTEROPERABILITY // PANEL RATIONALIZATION</span>
+              <h3 class="project-title">Kula Tower Double-Curved Façade System</h3>
+              <p class="project-desc">Built Revit-to-Grasshopper coordinate bridges, reconstructed double-curved high-rise panelization, and wrote custom surface planarity &amp; measurement algorithms.</p>
+              <div class="project-footer">
+                <span class="mono" style="color: var(--text-muted);">REVIT ↔ GRASSHOPPER · PYTHON</span>
+                <button type="button" class="inspect-btn" data-inspect="kula">INSPECT SPEC →</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Technical Project 3 -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/hero/hero.png" alt="Grid 2 Shell System Schueco Welcome Forum">
+              <span class="project-tag-overlay">SCHUECO // BIELEFELD</span>
+            </div>
+            <div class="project-body">
+              <span class="project-meta">PYTHON // FABRICATION AUTOMATION</span>
+              <h3 class="project-title">Grid 2 Shell — Schueco Welcome Forum</h3>
+              <p class="project-desc">Developed a custom Python mesh restructuring pipeline for unstructured free-form shells, automating profile placement, angle-cut calculation, and part numbering.</p>
+              <div class="project-footer">
+                <span class="mono" style="color: var(--text-muted);">PYTHON · RHINO · MESH</span>
+                <button type="button" class="inspect-btn" data-inspect="grid2">INSPECT SPEC →</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Technical Project 4 -->
+          <article class="project-card">
+            <div class="project-media">
+              <img src="assets/project-thumb-3.jpg" alt="ClipHut Open-Source Timber Building System">
+              <span class="project-tag-overlay">METSÄWOOD AWARD // 1:1 PROTOTYPE</span>
+            </div>
+            <div class="project-body">
+              <span class="project-meta">STRUCTURAL FEA // CNC PREFABRICATION</span>
+              <h3 class="project-title">ClipHut: Decentralized Timber Building System</h3>
+              <p class="project-desc">Tool-less open-source timber construction system driven by Karamba3D FEA limits (0.59mm max displacement), automated 84-sheet CNC nesting, and web configurator logic.</p>
+              <div class="project-footer">
+                <span class="mono" style="color: var(--text-muted);">KARAMBA3D · CNC · CONFIGURATOR</span>
+                <button type="button" class="inspect-btn" data-inspect="cliphut">INSPECT SPEC →</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         3. EXPERIENCE & CORE STACK (Concise Recruiter-Ready Summary)
+         ==================================================================== -->
+    <section class="band band--dark" id="experience">
+      <div class="container about-split">
+        <div>
+          <p class="eyebrow">02 // EXPERIENCE &amp; EDUCATION</p>
+          <h2 class="section-title">Production Track Record</h2>
+
+          <div class="hero-metrics" style="margin: 20px 0 28px; padding: 18px 0; border-bottom: 1px solid var(--border-hairline);">
+            <div class="metric-item">
+              <strong>7+ YRS</strong>
+              <span>PRIEDEMANN &amp; SCHUECO</span>
+            </div>
+            <div class="metric-item">
+              <strong>0.59MM</strong>
+              <span>KARAMBA3D FEA PRECISION</span>
+            </div>
+            <div class="metric-item">
+              <strong>M.ENG 1.3</strong>
+              <span>VALEDICTORIAN // TH-OWL</span>
+            </div>
+          </div>
+
+          <div class="timeline-list">
+            <div class="timeline-item">
+              <span class="mono" style="color: var(--accent-cyan);">2023—PRESENT</span>
+              <div>
+                <h3>Senior PM 3D Konstruktion | Digital Twin</h3>
+                <p><strong>Priedemann Fassadenberatung GmbH, Berlin</strong> — Product Owner for custom parametric 3D façade tools, Agile software-engineering workflows, and Digital Twin data architecture.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="mono" style="color: var(--accent-orange);">2019—2023</span>
+              <div>
+                <h3>Senior Computational Designer | Automation Developer</h3>
+                <p><strong>Schueco International KG, Bielefeld</strong> — Custom Python geometry tools, Rhino–Grasshopper–Revit BIM automation, and digital 3D façade construction products.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="mono" style="color: var(--text-muted);">2016—2018</span>
+              <div>
+                <h3>M.Eng. Integrated / Computational Design</h3>
+                <p><strong>TH-OWL (Germany)</strong> — GPA 1.3, Valedictorian. Metsäwood Open Source Wood Award.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <span class="mono" style="color: var(--text-muted);">1999—2005</span>
+              <div>
+                <h3>Architect Diploma</h3>
+                <p><strong>Universidad Central de Venezuela (UCV)</strong> — Special Honour Diploma for Final Career Project.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside style="display: flex; flex-direction: column; gap: 20px;">
+          <div class="spec-box">
+            <span class="mono" style="color: var(--accent-cyan);">TECHNICAL STACK</span>
+            <div class="tag-cloud">
+              <span class="tag-chip">Python</span>
+              <span class="tag-chip">Rhino 3D</span>
+              <span class="tag-chip">Grasshopper</span>
+              <span class="tag-chip">Revit / Dynamo</span>
+              <span class="tag-chip">Karamba3D FEA</span>
+              <span class="tag-chip">JavaScript / Three.js</span>
+              <span class="tag-chip">Digital Twins</span>
+              <span class="tag-chip">Agile Product Owner</span>
+              <span class="tag-chip">CNC / 3D Printing</span>
+            </div>
+          </div>
+
+          <div class="spec-box">
+            <span class="mono" style="color: var(--text-muted);">PROFILE &amp; AVAILABILITY</span>
+            <ul class="footer-links">
+              <li>LOCATION: BERLIN (10629) · EU CITIZENSHIP</li>
+              <li>ROLES: COMPUTATIONAL DESIGN · DIGITAL TWIN PO · AEC DEV</li>
+              <li>LANGUAGES: EN (C1) · DE (B1) · ES (NATIVE)</li>
+              <li>NOTICE PERIOD: 3 MONTHS</li>
+            </ul>
+            <a href="about.html" class="btn-secondary" style="justify-content: center;">FULL BIO &amp; CREDENTIALS →</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         4. BRIDGE TO THE ALT PLUS (Design Research, Sound Objects, Art & Teaching)
+         ==================================================================== -->
+    <section class="band band--surface">
+      <div class="container">
+        <div class="bridge-banner">
+          <div>
+            <p class="eyebrow eyebrow--orange">PARALLEL PRACTICE // DESIGN RESEARCH &amp; ART</p>
+            <h3>Looking for sound objects, exhibitions, teaching &amp; experimental architecture?</h3>
+            <p>Explore <strong>The Alt Plus</strong> — my dedicated practice shaping design experiences, data, and sound through digital fabrication, spatial architecture, exhibitions, and international teaching.</p>
+          </div>
+          <div>
+            <a href="alt-plus.html" class="btn-primary">ENTER THE ALT PLUS ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================================================================
+       PERSONAL PORTFOLIO FOOTER
+       ==================================================================== -->
+  <footer class="band band--dark" id="contact" style="padding-bottom: 36px;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>TOMÁS MENA L.</h4>
+          <ul class="footer-links">
+            <li>ARCHITECT · COMPUTATIONAL DESIGNER · DIGITAL TWIN PO</li>
+            <li>BERLIN, GERMANY</li>
+            <li><a href="https://www.linkedin.com/in/tomas-jos%C3%A9-mena-lozada-55197924/" target="_blank" rel="noopener">LINKEDIN ↗</a></li>
+            <li><button type="button" class="inspect-btn" data-copy-email style="font-size: 11px;">TOMASMENA@GMAIL.COM // COPY</button></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>APPLICATION ASSETS</h4>
+          <ul class="footer-links">
+            <li><a href="assets/docs/Tomas_Mena_CV_DigitalTwin_PO.pdf" target="_blank">CV — DIGITAL TWIN / PO / AGILE (PDF) ↗</a></li>
+            <li><a href="assets/docs/Tomas_Mena_CV_Computational.pdf" target="_blank">CV — COMPUTATIONAL DESIGN (PDF) ↗</a></li>
+            <li><a href="assets/docs/Tomas_Mena_Portfolio.pdf" target="_blank">FULL PORTFOLIO — 5.5 MB (PDF) ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>TWO WORLDS</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">TOMÁS MENA — TECHNICAL PORTFOLIO</a></li>
+            <li><a href="alt-plus.html" style="color: var(--accent-orange);">THE ALT PLUS — RESEARCH, ART &amp; SOUND ↗</a></li>
+            <li><a href="projects.html">ALL PROJECTS INDEX (10)</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 TOMÁS MENA L. — BERLIN, GERMANY</span>
+        <span>TECHNICAL PORTFOLIO // BUILDING SYSTEMS &amp; COMPUTATION</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CV & Portfolio Asset Drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cv-drawer" id="cvDrawer" aria-label="CV and Portfolio Downloads">
+    <div class="drawer-head">
+      <div>
+        <span class="mono" style="color: var(--accent-cyan);">DIRECT ASSETS // 03 FILES</span>
+        <h3 style="margin: 4px 0 0; font-family: var(--font-display);">Download Package</h3>
+      </div>
+      <button type="button" class="toggle-btn" id="closeCvDrawer">CLOSE [ESC]</button>
+    </div>
+
+    <a class="asset-card" href="assets/docs/Tomas_Mena_CV_DigitalTwin_PO.pdf" target="_blank">
+      <span class="mono" style="color: var(--accent-orange);">01 // TECHNICAL &amp; PRODUCT OWNER</span>
+      <strong>CV — Digital Twin, PO &amp; AEC Dev</strong>
+      <span>Updated Nov 2026 · Digital Twin Lead, Product Owner, and Software Automation.</span>
+    </a>
+
+    <a class="asset-card" href="assets/docs/Tomas_Mena_CV_Computational.pdf" target="_blank">
+      <span class="mono" style="color: var(--accent-cyan);">02 // COMPUTATIONAL &amp; PARAMETRIC</span>
+      <strong>CV — Computational Design &amp; BIM</strong>
+      <span>Updated Jun 2026 · Computational Design, Geometry Specialist, and Research.</span>
+    </a>
+
+    <a class="asset-card" href="assets/docs/Tomas_Mena_Portfolio.pdf" target="_blank">
+      <span class="mono" style="color: var(--text-muted);">03 // SELECTED WORKS PDF (5.5 MB)</span>
+      <strong>Full Computational Portfolio</strong>
+      <span>10-page visual dossier covering façades, FEA, automation, fabrication, and exhibitions.</span>
+    </a>
+
+    <div style="margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border-hairline);">
+      <button type="button" class="btn-primary" style="width: 100%; justify-content: center;" data-copy-email>COPY TOMASMENA@GMAIL.COM</button>
+    </div>
+  </aside>
+
+  <!-- Project Spec Modal -->
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="spec-modal" id="specModal" role="dialog" aria-modal="true" aria-labelledby="specModalTitle">
+    <div class="modal-header">
+      <span class="mono" data-spec-eyebrow style="color: var(--accent-cyan);">SYSTEM SPEC</span>
+      <button type="button" class="toggle-btn" id="closeSpecModal">CLOSE [ESC]</button>
+    </div>
+    <div class="modal-body">
+      <div>
+        <h2 id="specModalTitle" data-spec-title style="font-family: var(--font-display); font-size: clamp(24px, 3vw, 34px); margin: 0 0 8px; letter-spacing: -0.025em;"></h2>
+        <p class="mono" data-spec-meta style="color: var(--text-muted); margin: 0;"></p>
+      </div>
+      <p data-spec-thesis style="margin: 0; font-size: 16.5px; color: var(--text-primary); border-left: 2px solid var(--accent-orange); padding-left: 16px;"></p>
+      <div class="spec-grid">
+        <div class="spec-step"><h4>01 // PROBLEM</h4><p data-spec-problem></p></div>
+        <div class="spec-step"><h4>02 // COMPUTATIONAL SYSTEM</h4><p data-spec-system></p></div>
+        <div class="spec-step"><h4>03 // MEASURABLE OUTPUT</h4><p data-spec-output></p></div>
+      </div>
+      <div>
+        <span class="mono" style="display: block; margin-bottom: 10px; color: var(--text-muted);">TECHNICAL STACK</span>
+        <div class="tag-cloud" data-spec-stack></div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px;">
+        <a href="assets/docs/Tomas_Mena_Portfolio.pdf" target="_blank" class="btn-primary">OPEN FULL PORTFOLIO PDF ↗</a>
+        <a href="mailto:tomasmena@gmail.com?subject=Technical%20Portfolio%20Inquiry" class="btn-secondary">DISCUSS THIS SYSTEM</a>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>

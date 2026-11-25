@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#0a0a0a"/>
+  <!-- Top-left: Bauhaus Signal Red Square -->
+  <rect x="8" y="8" width="20" height="20" fill="#e1251b"/>
+  <!-- Top-right: Crisp White Circle -->
+  <circle cx="46" cy="18" r="9" fill="none" stroke="#f2f2f2" stroke-width="3"/>
+  <!-- Bottom-left: Neutral Gray Triangle -->
+  <polygon points="18,36 28,56 8,56" fill="#828282"/>
+  <!-- Bottom-right: 3x3 Point Grid -->
+  <g fill="#f2f2f2">
+    <circle cx="38" cy="38" r="2"/>
+    <circle cx="46" cy="38" r="2"/>
+    <circle cx="54" cy="38" r="2"/>
+    <circle cx="38" cy="46" r="2"/>
+    <circle cx="46" cy="46" r="2"/>
+    <circle cx="54" cy="46" r="2"/>
+    <circle cx="38" cy="54" r="2"/>
+    <circle cx="46" cy="54" r="2"/>
+    <circle cx="54" cy="54" r="2"/>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+# Backups & unused Framer export
+index.html.bak
+framer_template.html
+
+# Unreferenced raw project image dumps (keep curated thumbnails & docs)
+assets/project_images/
+assets/thumbnails/
+
+# OS & editor files
+.DS_Store
+Thumbs.db
+desktop.ini
