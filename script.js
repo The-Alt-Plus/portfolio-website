@@ -774,16 +774,20 @@ function initSectionDropdownLinks() {
   }
 }
 
-/* 12. Adapt hero & clicked section dropdowns dynamically to the loaded display viewport */
+/* 12. Adapt hero, full-viewport sections & half-scroll snap dynamically to the loaded display */
 function initAdaptiveHero() {
   const hero = document.querySelector('.hero');
+  const main = document.querySelector('main');
+  const footer = document.querySelector('.site-footer');
   const sectionDropdowns = document.querySelectorAll('details.section-dropdown');
   if (!hero && !sectionDropdowns.length) return;
 
   const nav = document.querySelector('.top-nav');
   const syncViewport = () => {
     const navH = nav ? Math.round(nav.getBoundingClientRect().height) : 0;
+    const footerH = footer ? Math.round(footer.getBoundingClientRect().height) : 0;
     document.documentElement.style.setProperty('--nav-h', `${navH}px`);
+    document.documentElement.style.setProperty('--footer-h', `${footerH}px`);
   };
 
   syncViewport();
@@ -791,9 +795,16 @@ function initAdaptiveHero() {
   window.addEventListener('orientationchange', syncViewport, { passive: true });
 
   let heroVisible = Boolean(hero);
+  let snapLockedUntil = 0;
 
   const syncHeaderBrand = () => {
     document.body.classList.toggle('section-expanded', !heroVisible);
+  };
+
+  const syncMainOpenState = () => {
+    if (!main) return;
+    const anyOpen = Array.from(sectionDropdowns).some(d => d.open);
+    main.classList.toggle('has-open-section', anyOpen);
   };
 
   if (hero && 'IntersectionObserver' in window) {
@@ -807,6 +818,48 @@ function initAdaptiveHero() {
     heroObserver.observe(hero);
   }
 
+  /* Snap cleanly out of half-scrolled hero states once the user finishes scrolling */
+  if (hero && main) {
+    let scrollTimer = null;
+    let isTouching = false;
+
+    const snapHeroIfHalfScrolled = () => {
+      if (isTouching || Date.now() < snapLockedUntil) return;
+      const heroEnd = Math.round(hero.offsetHeight);
+      if (heroEnd <= 0) return;
+      const y = window.scrollY;
+      if (y > 4 && y < heroEnd - 4) {
+        const target = y >= heroEnd * 0.5 ? heroEnd : 0;
+        snapLockedUntil = Date.now() + 650;
+        window.scrollTo({ top: target, behavior: 'smooth' });
+      }
+    };
+
+    window.addEventListener('touchstart', () => {
+      isTouching = true;
+      clearTimeout(scrollTimer);
+    }, { passive: true });
+
+    const onTouchRelease = () => {
+      isTouching = false;
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(snapHeroIfHalfScrolled, 140);
+    };
+    window.addEventListener('touchend', onTouchRelease, { passive: true });
+    window.addEventListener('touchcancel', onTouchRelease, { passive: true });
+
+    window.addEventListener('scroll', () => {
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(snapHeroIfHalfScrolled, 140);
+    }, { passive: true });
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', () => {
+        snapLockedUntil = Date.now() + 900;
+      });
+    });
+  }
+
   sectionDropdowns.forEach(dropdown => {
     const section = dropdown.closest('.section');
     if (section && dropdown.open) section.classList.add('is-open');
@@ -814,9 +867,11 @@ function initAdaptiveHero() {
     dropdown.addEventListener('toggle', () => {
       syncViewport();
       syncHeaderBrand();
+      syncMainOpenState();
       if (!section) return;
       section.classList.toggle('is-open', dropdown.open);
       if (dropdown.open) {
+        snapLockedUntil = Date.now() + 900;
         requestAnimationFrame(() => {
           section.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
@@ -824,5 +879,6 @@ function initAdaptiveHero() {
     });
   });
 
+  syncMainOpenState();
   syncHeaderBrand();
 }
