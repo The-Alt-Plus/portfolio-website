@@ -1404,6 +1404,9 @@ body.section-expanded .top-nav-brand,
     padding-top: 1.6rem;
     padding-bottom: 1.6rem;
   }
+  .section-dropdown[open] > .section-body {
+    justify-content: flex-start;
+  }
   .about-grid {
     gap: 1.5rem;
   }
@@ -1416,8 +1419,14 @@ body.section-expanded .top-nav-brand,
     line-height: 1.62;
   }
   .entry {
-    padding: 0.85rem 0;
+    position: relative;
+    padding: 0.85rem 1.5rem 0.85rem 0;
     gap: 0.2rem 0.45rem;
+  }
+  .entry-arrow {
+    position: absolute;
+    right: 0;
+    top: 0.85rem;
   }
   .entry-title {
     font-size: 0.82rem;
