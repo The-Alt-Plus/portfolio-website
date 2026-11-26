@@ -130,6 +130,7 @@ const PROJECT_SPECS = {
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
   initMobileMenu();
+  initAdaptiveHero();
   initCvDrawer();
   initCarousels();
   initProjectModal();
@@ -138,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initParametricCanvas();
   initEchoCanvas();
+  initSectionDropdownLinks();
 });
 
 /* 1. ON/OFF Mode Toggle (Dark Computational ↔ Swiss High-Contrast Blueprint) */
@@ -748,4 +750,84 @@ function initEchoCanvas() {
     requestAnimationFrame(render);
   };
   render();
+}
+
+/* 11. Auto-open target section dropdown when navigating via anchor links */
+function initSectionDropdownLinks() {
+  const openSectionById = id => {
+    if (!id) return;
+    const section = document.getElementById(id);
+    if (!section) return;
+    const dropdown = section.querySelector(':scope > details.section-dropdown');
+    if (dropdown) dropdown.open = true;
+  };
+
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', () => {
+      const hash = link.getAttribute('href');
+      if (hash && hash.length > 1) openSectionById(hash.slice(1));
+    });
+  });
+
+  if (window.location.hash.length > 1) {
+    openSectionById(window.location.hash.slice(1));
+  }
+}
+
+/* 12. Adapt hero & clicked section dropdowns dynamically to the loaded display viewport */
+function initAdaptiveHero() {
+  const hero = document.querySelector('.hero');
+  const sectionDropdowns = document.querySelectorAll('details.section-dropdown');
+  if (!hero && !sectionDropdowns.length) return;
+
+  const nav = document.querySelector('.top-nav');
+  const syncViewport = () => {
+    const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+    const navH = nav ? Math.round(nav.getBoundingClientRect().height) : 0;
+    document.documentElement.style.setProperty('--vh-full', `${Math.round(vh)}px`);
+    document.documentElement.style.setProperty('--nav-h', `${navH}px`);
+  };
+
+  syncViewport();
+  window.addEventListener('resize', syncViewport, { passive: true });
+  window.addEventListener('orientationchange', syncViewport, { passive: true });
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', syncViewport, { passive: true });
+  }
+
+  let heroVisible = Boolean(hero);
+
+  const syncHeaderBrand = () => {
+    document.body.classList.toggle('section-expanded', !heroVisible);
+  };
+
+  if (hero && 'IntersectionObserver' in window) {
+    const heroObserver = new IntersectionObserver(
+      entries => {
+        heroVisible = entries.some(entry => entry.isIntersecting);
+        syncHeaderBrand();
+      },
+      { threshold: 0.15 }
+    );
+    heroObserver.observe(hero);
+  }
+
+  sectionDropdowns.forEach(dropdown => {
+    const section = dropdown.closest('.section');
+    if (section && dropdown.open) section.classList.add('is-open');
+
+    dropdown.addEventListener('toggle', () => {
+      syncViewport();
+      syncHeaderBrand();
+      if (!section) return;
+      section.classList.toggle('is-open', dropdown.open);
+      if (dropdown.open) {
+        requestAnimationFrame(() => {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+    });
+  });
+
+  syncHeaderBrand();
 }

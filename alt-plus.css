@@ -156,6 +156,19 @@ button {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--fg);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+  pointer-events: none;
+  transition: opacity 220ms ease, transform 220ms ease, visibility 220ms ease;
+}
+
+body.section-expanded .top-nav-brand,
+.top-nav.menu-open .top-nav-brand {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .top-nav-brand b {
@@ -235,14 +248,14 @@ button {
    ========================================================================== */
 .hero {
   position: relative;
-  min-height: calc(92svh - 60px);
-  padding: clamp(4rem, 8vw, 7rem) var(--edge);
+  min-height: calc(var(--vh-full, 100dvh) - var(--nav-h, 58px));
+  padding: clamp(2rem, 6dvh, 6rem) var(--edge);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: clamp(1.6rem, 3vw, 2.5rem);
+  gap: clamp(1.1rem, 3.2dvh, 2.6rem);
   overflow: hidden;
   border-bottom: 1px solid var(--line-strong);
 }
@@ -309,7 +322,7 @@ button {
 .glitch-title {
   position: relative;
   font-family: var(--display);
-  font-size: clamp(3.8rem, 8.6vw, 8.8rem);
+  font-size: clamp(2.4rem, min(10.5vw, 13dvh), 9.5rem);
   font-weight: 800;
   letter-spacing: -0.045em;
   line-height: 0.86;
@@ -317,6 +330,7 @@ button {
   margin: 0;
   color: var(--fg);
   display: inline-block;
+  max-width: 100%;
 }
 
 .glitch-title span {
@@ -394,29 +408,29 @@ button {
 }
 
 .hero-role .bauhaus-glyphs {
-  gap: 14px;
+  gap: clamp(10px, 1.4vw, 16px);
 }
 
 .hero-role .g-sq {
-  width: 20px;
-  height: 20px;
+  width: clamp(14px, 1.8vw, 22px);
+  height: clamp(14px, 1.8vw, 22px);
 }
 
 .hero-role .g-ci {
-  width: 20px;
-  height: 20px;
+  width: clamp(14px, 1.8vw, 22px);
+  height: clamp(14px, 1.8vw, 22px);
   border-width: 2px;
 }
 
 .hero-role .g-tr {
-  border-left-width: 11px;
-  border-right-width: 11px;
-  border-bottom-width: 20px;
+  border-left-width: clamp(8px, 1vw, 12px);
+  border-right-width: clamp(8px, 1vw, 12px);
+  border-bottom-width: clamp(14px, 1.8vw, 22px);
 }
 
 .hero-role .g-grid {
-  width: 21px;
-  height: 21px;
+  width: clamp(15px, 1.9vw, 23px);
+  height: clamp(15px, 1.9vw, 23px);
   background-image: radial-gradient(circle, var(--fg) 1.6px, transparent 1.8px);
   background-size: 7px 7px;
 }
@@ -434,6 +448,13 @@ button {
 
 .hero-links-wrap {
   order: 4;
+  max-width: min(92vw, 44rem);
+}
+
+.hero-links-wrap .meta-label {
+  font-size: clamp(0.58rem, 1.15vw, 0.74rem);
+  line-height: 1.6;
+  margin: 0;
 }
 
 .meta-label {
@@ -510,15 +531,54 @@ button {
    Shared Editorial Section Structure (13% Signature Inset Preserved)
    ========================================================================== */
 .section {
-  padding: var(--section-gap) var(--edge) 0;
+  padding: clamp(2.4rem, 4.5vw, 3.8rem) var(--edge) 0;
+  scroll-margin-top: var(--nav-h, 58px);
+}
+
+.section:has(> .section-dropdown[open]),
+.section.is-open {
+  min-height: calc(var(--vh-full, 100dvh) - var(--nav-h, 58px));
+  padding-top: clamp(1.5rem, 3dvh, 2.8rem);
+  padding-bottom: clamp(1.5rem, 3dvh, 2.8rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.section-dropdown {
+  display: block;
+}
+
+.section-dropdown[open] {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .section-head {
   display: grid;
   grid-template-columns: var(--content-inset) 1fr auto;
-  align-items: baseline;
-  padding-bottom: 0.9rem;
+  align-items: center;
+  padding: 0.45rem 0 0.95rem;
   border-bottom: 1px solid var(--line-strong);
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 160ms ease;
+}
+
+.section-head::-webkit-details-marker {
+  display: none;
+}
+
+.section-head:hover {
+  border-bottom-color: var(--signal);
+}
+
+.section-title-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: fit-content;
 }
 
 .section-num,
@@ -533,6 +593,29 @@ button {
 
 .section-head h2 {
   letter-spacing: 0.28em;
+  transition: letter-spacing 220ms cubic-bezier(0.2, 0, 0.2, 1), color 160ms ease;
+}
+
+.section-head:hover h2 {
+  letter-spacing: 0.34em;
+}
+
+.section-plus {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--signal);
+  transform-origin: center;
+  transition: transform 240ms cubic-bezier(0.2, 0, 0.2, 1), color 160ms ease;
+}
+
+.section-dropdown[open] > .section-head .section-plus {
+  transform: rotate(45deg);
+  color: var(--fg);
 }
 
 .section-num {
@@ -549,7 +632,32 @@ button {
 
 .section-body {
   margin-left: var(--content-inset);
-  padding-top: clamp(2.8rem, 5vw, 5rem);
+  padding-top: clamp(2rem, 4.5dvh, 4rem);
+  padding-bottom: clamp(2rem, 4.5dvh, 4rem);
+}
+
+.section-dropdown[open] > .section-body {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: section-reveal 240ms cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.section-body > .about-grid,
+.section-body > .editorial-grid {
+  width: 100%;
+}
+
+@keyframes section-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ==========================================================================
@@ -564,7 +672,7 @@ button {
 
 .about-lead {
   font-family: var(--sans);
-  font-size: clamp(2.1rem, 3.8vw, 3.9rem);
+  font-size: clamp(1.65rem, min(3.8vw, 6.2dvh), 3.9rem);
   font-weight: 300;
   letter-spacing: -0.03em;
   line-height: 1.06;
@@ -719,6 +827,7 @@ button {
 .entry-preview-media {
   width: 100%;
   aspect-ratio: 16 / 10;
+  max-height: 48dvh;
   border: 1px solid var(--line);
   background-color: var(--bg-panel);
   overflow: hidden;
@@ -1193,17 +1302,6 @@ button {
 }
 
 @media (max-width: 860px) {
-  .top-nav-brand {
-    visibility: hidden;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 160ms ease;
-  }
-  .top-nav.menu-open .top-nav-brand {
-    visibility: visible;
-    opacity: 1;
-    pointer-events: auto;
-  }
   .mobile-menu-btn {
     display: inline-flex;
     align-items: center;
@@ -1242,11 +1340,8 @@ button {
     --content-inset: 0%;
   }
   .hero {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    min-height: auto;
-    padding-top: 2rem;
-    padding-bottom: 3rem;
+    min-height: calc(var(--vh-full, 100dvh) - var(--nav-h, 58px));
+    padding: clamp(1.75rem, 5dvh, 3.5rem) var(--edge);
   }
   .section-head {
     grid-template-columns: 2.8rem 1fr;
