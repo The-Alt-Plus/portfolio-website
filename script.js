@@ -782,18 +782,13 @@ function initAdaptiveHero() {
 
   const nav = document.querySelector('.top-nav');
   const syncViewport = () => {
-    const vh = window.visualViewport ? window.visualViewport.height : window.innerHeight;
     const navH = nav ? Math.round(nav.getBoundingClientRect().height) : 0;
-    document.documentElement.style.setProperty('--vh-full', `${Math.round(vh)}px`);
     document.documentElement.style.setProperty('--nav-h', `${navH}px`);
   };
 
   syncViewport();
   window.addEventListener('resize', syncViewport, { passive: true });
   window.addEventListener('orientationchange', syncViewport, { passive: true });
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', syncViewport, { passive: true });
-  }
 
   let heroVisible = Boolean(hero);
 
