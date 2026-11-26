@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Geist:wght@400;500;600;700&display=swap');
 
 /* ==========================================================================
-   Design Tokens — Dark Computational Aesthetic + Geist Swiss-Tech Typography
+   Design Tokens — Pure White Swiss CV Document (Monochrome Black & Gray)
    ========================================================================== */
 :root {
-  --bg-primary: #0a0a0a;
-  --bg-surface: #121214;
-  --bg-elevated: #17171a;
-  --border-hairline: #222226;
-  --border-strong: #35353c;
-  --text-primary: #ededed;
-  --text-muted: #88888e;
-  --accent-orange: #ff5500;
-  --accent-cyan: #00e5ff;
+  --bg-primary: #ffffff;
+  --bg-surface: #fafafa;
+  --bg-elevated: #f2f2f2;
+  --border-hairline: #e2e2e2;
+  --border-strong: #111111;
+  --text-primary: #111111;
+  --text-muted: #5a5a5a;
+  --accent-orange: #111111;
+  --accent-cyan: #111111;
 
   --font-display: 'Geist', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-body: 'Geist', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -23,17 +23,17 @@
   --transition: 0.22s cubic-bezier(0.2, 0, 0.2, 1);
 }
 
-/* Optional ON/OFF Toggle: Swiss High-Contrast Blueprint Mode */
+/* Optional ON/OFF Toggle: Inverted Dark Monochrome Mode */
 body.light-mode {
-  --bg-primary: #ffffff;
-  --bg-surface: #e8e8ea;
-  --bg-elevated: #f4f4f6;
-  --border-hairline: #c8c8ce;
-  --border-strong: #111111;
-  --text-primary: #0a0a0a;
-  --text-muted: #505058;
-  --accent-orange: #d94800;
-  --accent-cyan: #007a8a;
+  --bg-primary: #0a0a0a;
+  --bg-surface: #121214;
+  --bg-elevated: #1a1a1d;
+  --border-hairline: #26262a;
+  --border-strong: #ededed;
+  --text-primary: #ededed;
+  --text-muted: #8e8e94;
+  --accent-orange: #ededed;
+  --accent-cyan: #ededed;
 }
 
 /* Reset & Base */
@@ -51,8 +51,9 @@ body {
   padding: 0;
   font-family: var(--font-body);
   font-size: 16px;
-  line-height: 1.55;
-  letter-spacing: -0.015em;
+  line-height: 1.6;
+  letter-spacing: 0;
+  word-spacing: 0.02em;
   color: var(--text-primary);
   background-color: var(--bg-primary);
   -webkit-font-smoothing: antialiased;
@@ -141,10 +142,10 @@ button {
   font-family: var(--font-display);
   font-size: 18px;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
   display: inline-flex;
   align-items: baseline;
-  gap: 2px;
+  gap: 6px;
 }
 
 .wordmark .wm-muted {
@@ -174,14 +175,19 @@ button {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: var(--accent-cyan);
-  box-shadow: 0 0 8px var(--accent-cyan);
+  background-color: var(--text-primary);
 }
 
 .site-nav {
   display: flex;
+  flex: 1;
   align-items: center;
-  gap: 22px;
+  justify-content: space-evenly;
+  align-self: stretch;
+  gap: 16px;
+  padding-inline: 24px;
+  border-left: 1px solid var(--border-hairline);
+  border-right: 1px solid var(--border-hairline);
 }
 
 .site-nav a {
@@ -199,15 +205,57 @@ button {
 }
 
 .site-nav a.nav-bridge {
-  color: var(--accent-orange);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--border-hairline);
-  padding: 5px 9px;
+  padding: 7px 11px;
   background-color: var(--bg-surface);
+  transition: border-color var(--transition), transform var(--transition);
 }
 
 .site-nav a.nav-bridge:hover {
-  border-color: var(--accent-orange);
-  color: var(--text-primary);
+  border-color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.bauhaus-glyphs {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.bauhaus-glyphs i {
+  display: inline-block;
+  font-style: normal;
+}
+
+.g-sq {
+  width: 8px;
+  height: 8px;
+  background: #e1251b;
+}
+
+.g-ci {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--text-primary);
+}
+
+.g-tr {
+  width: 0;
+  height: 0;
+  border-left: 4.5px solid transparent;
+  border-right: 4.5px solid transparent;
+  border-bottom: 8px solid var(--text-muted);
+}
+
+.g-grid {
+  width: 9px;
+  height: 9px;
+  background-image: radial-gradient(circle, var(--text-primary) 1px, transparent 1.2px);
+  background-size: 3px 3px;
 }
 
 .header-actions {
@@ -261,8 +309,8 @@ button {
   min-width: 18px;
   height: 18px;
   padding: 0 4px;
-  background-color: var(--accent-orange);
-  color: #ffffff;
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
   font-size: 10px;
   font-weight: 700;
 }
@@ -326,9 +374,9 @@ button {
 }
 
 .btn-primary:hover {
-  background-color: var(--accent-cyan);
-  border-color: var(--accent-cyan);
-  color: #0a0a0a;
+  background-color: var(--text-muted);
+  border-color: var(--text-muted);
+  color: var(--bg-primary);
 }
 
 .btn-secondary {
@@ -371,9 +419,17 @@ button {
 /* ==========================================================================
    Section 1: Hero (50/50 Split — Parametric Viewport Left / Thesis Right)
    ========================================================================== */
+#top.band {
+  min-height: 76svh;
+  display: flex;
+  align-items: center;
+  padding-block: clamp(88px, 11vw, 150px);
+}
+
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
   gap: clamp(28px, 4vw, 56px);
   align-items: center;
 }
@@ -416,31 +472,31 @@ button {
 }
 
 .hero-callout {
-  border-left: 2px solid var(--accent-cyan);
-  padding-left: 20px;
+  border-left: none;
+  padding-left: 0;
 }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(36px, 4.4vw, 56px);
+  font-size: clamp(34px, 4.2vw, 58px);
   font-weight: 700;
-  line-height: 1.03;
-  letter-spacing: -0.035em;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
   margin: 0;
   color: var(--text-primary);
 }
 
 .hero-subtitle {
-  font-size: clamp(16px, 1.4vw, 18px);
+  font-size: clamp(16px, 1.35vw, 18px);
   color: var(--text-muted);
   margin: 0;
-  max-width: 56ch;
+  max-width: 64ch;
 }
 
 .hero-metrics {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
   padding-top: 18px;
   border-top: 1px solid var(--border-hairline);
 }
@@ -1036,6 +1092,28 @@ button {
   color: var(--text-muted);
 }
 
+.cv-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-top: 10px;
+}
+
+.cv-links a {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-strong);
+  padding-bottom: 2px;
+  transition: opacity var(--transition);
+}
+
+.cv-links a:hover {
+  opacity: 0.6;
+}
+
 .spec-box {
   border: 1px solid var(--border-hairline);
   background-color: var(--bg-surface);
@@ -1268,6 +1346,8 @@ button {
     align-items: flex-start;
     padding: 20px var(--pad-x);
     background-color: var(--bg-primary);
+    border-left: none;
+    border-right: none;
     border-bottom: 1px solid var(--border-hairline);
     gap: 14px;
   }
@@ -1297,7 +1377,7 @@ button {
     grid-template-columns: 1fr;
   }
   .hero-metrics {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .project-card {
     flex: 0 0 88%;
