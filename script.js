@@ -114,6 +114,16 @@ const PROJECT_SPECS = {
     system: 'Developed studio curricula and intensive master classes integrating Grasshopper, data visualization, 3D scanning, and collaborative workflows.',
     output: 'Ongoing Guest Lecturer at Umeå University Master in Architecture Studio, plus courses & master classes in Paris, Barcelona, and Arizona.',
     stack: ['Umeå University', 'IAAC Barcelona', 'ESA Paris', 'Computational Pedagogy', 'Data Visualization']
+  },
+  tokyo_workshop: {
+    eyebrow: 'THE ALT+ // WORKSHOP & SOUND TOPOLOGY',
+    title: 'City Intelligence Tokyo — Acoustic & Artifact Workshop',
+    meta: 'TOKYO  |  URBAN ACOUSTIC TOPOLOGY & PARAMETRIC ARTIFACTS',
+    thesis: 'Translating urban field recordings and AI-synthesized Tokyo soundscapes into 3D acoustic topologies and digitally fabricated parametric ring artifacts.',
+    problem: 'Urban soundscapes are ephemeral and rarely captured as spatial, tactile objects that connect acoustic sensing with physical craft.',
+    system: 'Participants capture spatial audio streams (Ableton Push & AI synthesis), map acoustic nodes onto 3D urban terrain meshes, and generate parametric wearable artifacts viewable in a dual-viewport 3D/AR web visualizer.',
+    output: 'Interactive Dual-Viewport 3D Acoustic & Ring Visualizer (ring-visualizer.html) paired with digitally fabricated physical ring artifacts.',
+    stack: ['Urban Acoustics', 'Parametric Design', 'Digital Fabrication', '3D Web / AR', 'Ableton & AI Sound']
   }
 };
 
@@ -229,24 +239,237 @@ function initCarousels() {
 }
 
 /* 5. Project Spec Modal (Mirrors TheNOTHINGShop's Product Detail Spec View) */
+const RING_STORYBOARD = [
+  {
+    tab: '01',
+    caption: '01 // URBAN SOUND CAPTURE',
+    svg: `<svg viewBox="0 0 640 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- City block grid -->
+      <path d="M40 70 H600 M40 140 H600 M40 210 H600 M140 20 V260 M260 20 V260 M380 20 V260 M500 20 V260" stroke="currentColor" stroke-opacity="0.1"/>
+      <!-- Architectural massing footprints -->
+      <rect x="76" y="46" width="54" height="80" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+      <rect x="160" y="90" width="84" height="42" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+      <rect x="280" y="42" width="80" height="72" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.2"/>
+      <rect x="404" y="156" width="78" height="68" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+      <rect x="520" y="64" width="56" height="106" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.2"/>
+      <!-- Pulsing GPS acoustic pins -->
+      <circle cx="202" cy="111" r="28" stroke="#e1251b" stroke-width="1.2" class="sb-anim-pulse"/>
+      <circle cx="202" cy="111" r="14" stroke="#e1251b" stroke-opacity="0.6"/>
+      <circle cx="202" cy="111" r="5" fill="#e1251b"/>
+      <circle cx="320" cy="78" r="36" stroke="#e1251b" stroke-width="1.2" stroke-dasharray="4 4" class="sb-anim-pulse"/>
+      <circle cx="320" cy="78" r="6" fill="#e1251b"/>
+      <circle cx="442" cy="190" r="24" stroke="currentColor" stroke-opacity="0.7" class="sb-anim-pulse"/>
+      <circle cx="442" cy="190" r="5" fill="#e1251b"/>
+      <circle cx="104" cy="196" r="18" stroke="currentColor" stroke-opacity="0.5"/>
+      <circle cx="104" cy="196" r="4.5" fill="#e1251b"/>
+      <!-- Connecting acoustic path -->
+      <path d="M104 196 L202 111 L320 78 L442 190" stroke="#e1251b" stroke-width="1.2" stroke-dasharray="6 6" class="sb-anim-dash"/>
+    </svg>`
+  },
+  {
+    tab: '02',
+    caption: '02 // AUDIO → MIDI TELEMETRY',
+    svg: `<svg viewBox="0 0 640 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Left: 4 Audio Waveforms -->
+      <path d="M36 72 Q66 42 96 72 T156 72 T216 72" stroke="#e1251b" stroke-width="1.8"/>
+      <path d="M36 120 Q66 96 96 120 T156 120 T216 120" stroke="currentColor" stroke-width="1.3"/>
+      <path d="M36 168 Q66 146 96 168 T156 168 T216 168" stroke="currentColor" stroke-opacity="0.65" stroke-width="1.2"/>
+      <path d="M36 216 Q66 196 96 216 T156 216 T216 216" stroke="currentColor" stroke-opacity="0.4" stroke-width="1.1"/>
+      <!-- Center: Signal Routing Matrix -->
+      <line x1="226" y1="72" x2="294" y2="140" stroke="#e1251b" stroke-dasharray="5 5" class="sb-anim-dash"/>
+      <line x1="226" y1="120" x2="294" y2="140" stroke="currentColor" stroke-opacity="0.6" stroke-dasharray="5 5" class="sb-anim-dash"/>
+      <line x1="226" y1="168" x2="294" y2="140" stroke="currentColor" stroke-opacity="0.6" stroke-dasharray="5 5" class="sb-anim-dash"/>
+      <line x1="226" y1="216" x2="294" y2="140" stroke="currentColor" stroke-opacity="0.4" stroke-dasharray="5 5" class="sb-anim-dash"/>
+      <rect x="294" y="100" width="80" height="80" stroke="#e1251b" stroke-width="1.8"/>
+      <circle cx="334" cy="140" r="18" stroke="currentColor" stroke-width="1.2" stroke-dasharray="4 4" class="sb-anim-spin"/>
+      <circle cx="334" cy="140" r="4.5" fill="#e1251b"/>
+      <!-- Right: Quantized MIDI Bar Telemetry -->
+      <line x1="374" y1="140" x2="430" y2="140" stroke="#e1251b" stroke-width="1.5" stroke-dasharray="6 4" class="sb-anim-dash"/>
+      <rect x="444" y="76" width="14" height="128" fill="#e1251b"/>
+      <rect x="472" y="110" width="14" height="94" fill="currentColor" fill-opacity="0.8"/>
+      <rect x="500" y="54" width="14" height="150" fill="currentColor" fill-opacity="0.5"/>
+      <rect x="528" y="128" width="14" height="76" fill="#e1251b" fill-opacity="0.85"/>
+      <rect x="556" y="92" width="14" height="112" fill="currentColor" fill-opacity="0.7"/>
+      <rect x="584" y="142" width="14" height="62" fill="currentColor" fill-opacity="0.35"/>
+      <line x1="436" y1="204" x2="608" y2="204" stroke="currentColor" stroke-opacity="0.4"/>
+    </svg>`
+  },
+  {
+    tab: '03',
+    caption: '03 // PARAMETRIC RING MORPHOGENESIS',
+    svg: `<svg viewBox="0 0 640 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Polar datum crosshairs -->
+      <line x1="320" y1="16" x2="320" y2="264" stroke="currentColor" stroke-opacity="0.14"/>
+      <line x1="120" y1="140" x2="520" y2="140" stroke="currentColor" stroke-opacity="0.14"/>
+      <!-- Outer wireframe construction rings -->
+      <circle cx="320" cy="140" r="106" stroke="currentColor" stroke-opacity="0.22" stroke-dasharray="3 6" class="sb-anim-spin"/>
+      <circle cx="320" cy="140" r="84" stroke="currentColor" stroke-opacity="0.55" stroke-width="1.2"/>
+      <!-- Organic SubD MultiPipe Ring Profile -->
+      <path d="M320 62 C368 62, 404 94, 398 140 C392 184, 362 222, 320 218 C276 214, 238 184, 242 140 C246 92, 274 62, 320 62 Z" stroke="#e1251b" stroke-width="2.6"/>
+      <path d="M320 78 C356 78, 384 104, 380 140 C376 174, 352 204, 320 200 C288 196, 258 174, 260 140 C262 104, 286 78, 320 78 Z" stroke="currentColor" stroke-width="1.4"/>
+      <!-- Control Nodes -->
+      <circle cx="320" cy="62" r="5" fill="#e1251b"/>
+      <circle cx="398" cy="140" r="5" fill="#e1251b"/>
+      <circle cx="320" cy="218" r="5" fill="#e1251b"/>
+      <circle cx="242" cy="140" r="5" fill="#e1251b"/>
+      <!-- Side radial amplitude vectors -->
+      <line x1="110" y1="140" x2="214" y2="140" stroke="#e1251b" stroke-dasharray="4 4" class="sb-anim-dash"/>
+      <line x1="426" y1="140" x2="530" y2="140" stroke="#e1251b" stroke-dasharray="4 4" class="sb-anim-dash"/>
+      <rect x="86" y="128" width="24" height="24" stroke="currentColor" stroke-opacity="0.6"/>
+      <polygon points="554,126 568,154 540,154" fill="#e1251b"/>
+    </svg>`
+  },
+  {
+    tab: '04',
+    caption: '04 // DESKTOP DUAL-VIEWPORT APP',
+    svg: `<svg viewBox="0 0 640 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Minimal Desktop Monitor Bezel & Stand -->
+      <rect x="44" y="18" width="552" height="218" rx="4" stroke="currentColor" stroke-opacity="0.75" stroke-width="1.5"/>
+      <line x1="286" y1="236" x2="274" y2="260" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5"/>
+      <line x1="354" y1="236" x2="366" y2="260" stroke="currentColor" stroke-opacity="0.5" stroke-width="1.5"/>
+      <line x1="246" y1="260" x2="394" y2="260" stroke="currentColor" stroke-opacity="0.7" stroke-width="1.8"/>
+      <!-- Left Viewport: Urban Map + Audio Rack + Bezier Wires -->
+      <rect x="60" y="34" width="340" height="186" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.1"/>
+      <rect x="74" y="48" width="68" height="100" stroke="currentColor" stroke-opacity="0.35"/>
+      <line x1="84" y1="70" x2="132" y2="70" stroke="#e1251b" stroke-width="2"/>
+      <line x1="84" y1="96" x2="132" y2="96" stroke="currentColor" stroke-opacity="0.5" stroke-width="2"/>
+      <line x1="84" y1="122" x2="132" y2="122" stroke="currentColor" stroke-opacity="0.35" stroke-width="2"/>
+      <path d="M142 70 C194 70, 202 108, 254 108" stroke="#e1251b" stroke-width="1.4" stroke-dasharray="6 4" class="sb-anim-dash"/>
+      <path d="M142 96 C206 96, 218 156, 304 156" stroke="currentColor" stroke-opacity="0.65" stroke-width="1.2" stroke-dasharray="5 5" class="sb-anim-dash"/>
+      <path d="M142 122 C186 122, 190 182, 232 182" stroke="currentColor" stroke-opacity="0.45" stroke-width="1.1"/>
+      <polygon points="254,86 364,132 284,200 174,154" stroke="currentColor" stroke-opacity="0.32"/>
+      <circle cx="254" cy="108" r="5.5" fill="#e1251b"/>
+      <circle cx="304" cy="156" r="4.5" fill="#e1251b"/>
+      <circle cx="232" cy="182" r="4" fill="currentColor"/>
+      <!-- Right Viewport: Ring Artifact -->
+      <rect x="414" y="34" width="166" height="186" stroke="#e1251b" stroke-width="1.3"/>
+      <circle cx="497" cy="127" r="46" stroke="currentColor" stroke-width="2"/>
+      <circle cx="497" cy="127" r="32" stroke="#e1251b" stroke-width="1.5"/>
+      <circle cx="497" cy="127" r="19" stroke="currentColor" stroke-opacity="0.4" stroke-dasharray="3 4" class="sb-anim-spin"/>
+    </svg>`
+  },
+  {
+    tab: '05',
+    caption: '05 // MOBILE APP · MAP · RING · AR',
+    svg: `<svg viewBox="0 0 640 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Phone 1: Mobile Urban Acoustic Map -->
+      <rect x="76" y="22" width="124" height="236" rx="14" stroke="currentColor" stroke-opacity="0.75" stroke-width="1.5"/>
+      <line x1="120" y1="36" x2="156" y2="36" stroke="currentColor" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round"/>
+      <!-- Portrait Map Grid + Pulsing Pins -->
+      <path d="M88 86 H188 M88 134 H188 M88 182 H188 M120 52 V204 M156 52 V204" stroke="currentColor" stroke-opacity="0.14"/>
+      <rect x="96" y="96" width="22" height="30" stroke="currentColor" stroke-opacity="0.45"/>
+      <rect x="132" y="64" width="44" height="22" stroke="currentColor" stroke-opacity="0.45"/>
+      <rect x="144" y="142" width="34" height="28" stroke="currentColor" stroke-opacity="0.45"/>
+      <circle cx="138" cy="116" r="18" stroke="#e1251b" stroke-width="1.1" class="sb-anim-pulse"/>
+      <circle cx="138" cy="116" r="4.5" fill="#e1251b"/>
+      <circle cx="160" cy="156" r="4" fill="#e1251b"/>
+      <circle cx="108" cy="166" r="3.5" fill="currentColor"/>
+      <path d="M108 166 L138 116 L160 156" stroke="#e1251b" stroke-width="1.1" stroke-dasharray="4 4" class="sb-anim-dash"/>
+      <!-- Bottom Audio Transport Pill -->
+      <rect x="90" y="216" width="96" height="26" rx="4" stroke="#e1251b" stroke-width="1.2"/>
+      <polygon points="102,224 102,234 111,229" fill="#e1251b"/>
+      <path d="M120 229 Q130 222 140 229 T160 229 T176 229" stroke="currentColor" stroke-width="1.2"/>
+
+      <!-- Flow Arrow 1 -> 2 -->
+      <line x1="214" y1="140" x2="244" y2="140" stroke="#e1251b" stroke-width="1.3" stroke-dasharray="4 3" class="sb-anim-dash"/>
+
+      <!-- Phone 2: Mobile Ring Orbit View -->
+      <rect x="258" y="22" width="124" height="236" rx="14" stroke="currentColor" stroke-opacity="0.75" stroke-width="1.5"/>
+      <line x1="302" y1="36" x2="338" y2="36" stroke="currentColor" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round"/>
+      <!-- Top Mode Switcher Pill (Map | Ring) -->
+      <rect x="280" y="50" width="80" height="16" rx="2" stroke="currentColor" stroke-opacity="0.4"/>
+      <rect x="320" y="50" width="40" height="16" rx="2" fill="#e1251b"/>
+      <!-- Ring Orbit -->
+      <circle cx="320" cy="146" r="38" stroke="currentColor" stroke-width="2.2"/>
+      <circle cx="320" cy="146" r="26" stroke="#e1251b" stroke-width="1.5"/>
+      <ellipse cx="320" cy="146" rx="48" ry="14" stroke="currentColor" stroke-opacity="0.3" stroke-dasharray="3 4"/>
+      <rect x="284" y="218" width="72" height="22" rx="3" stroke="currentColor" stroke-opacity="0.6"/>
+
+      <!-- Flow Arrow 2 -> 3 -->
+      <line x1="396" y1="140" x2="426" y2="140" stroke="#e1251b" stroke-width="1.3" stroke-dasharray="4 3" class="sb-anim-dash"/>
+
+      <!-- Phone 3: Mobile AR Placement -->
+      <rect x="440" y="22" width="124" height="236" rx="14" stroke="#e1251b" stroke-width="1.5"/>
+      <line x1="484" y1="36" x2="520" y2="36" stroke="currentColor" stroke-opacity="0.35" stroke-width="2" stroke-linecap="round"/>
+      <!-- AR Reticle Corner Brackets -->
+      <path d="M460 78 V62 H476 M544 78 V62 H528 M460 198 V214 H476 M544 198 V214 H528" stroke="#e1251b" stroke-width="1.5"/>
+      <!-- Ground Plane Grid + Floating Ring -->
+      <polygon points="502,168 548,188 502,208 456,188" stroke="currentColor" stroke-opacity="0.35" stroke-dasharray="3 3"/>
+      <circle cx="502" cy="134" r="30" stroke="currentColor" stroke-width="2"/>
+      <circle cx="502" cy="134" r="19" stroke="#e1251b" stroke-width="1.4"/>
+      <circle cx="502" cy="134" r="40" stroke="currentColor" stroke-opacity="0.25" stroke-dasharray="3 5" class="sb-anim-spin"/>
+    </svg>`
+  }
+];
+
+function renderStoryboard(container, activeIdx = 0) {
+  const frame = RING_STORYBOARD[activeIdx] || RING_STORYBOARD[0];
+  container.innerHTML = `
+    <div class="sb-tabs" role="tablist" aria-label="Ring app storyboard stages">
+      ${RING_STORYBOARD.map((s, i) => `
+        <button type="button" class="sb-tab${i === activeIdx ? ' active' : ''}" data-sb-idx="${i}" role="tab" aria-selected="${i === activeIdx}">
+          ${s.tab}
+        </button>
+      `).join('')}
+    </div>
+    <div class="sb-frame">
+      <div class="sb-visual">${frame.svg}</div>
+      <div class="sb-caption">
+        <strong>${frame.caption}</strong>
+        <span>0${activeIdx + 1} / 0${RING_STORYBOARD.length}</span>
+      </div>
+    </div>
+    <div class="sb-footer">
+      <div class="sb-nav">
+        <button type="button" class="sb-nav-btn" data-sb-step="-1">←</button>
+        <button type="button" class="sb-nav-btn" data-sb-step="1">→</button>
+      </div>
+      <a href="ring-visualizer.html" class="archive-link" style="margin-top: 0;">Launch 3D Visualizer ↗</a>
+    </div>
+  `;
+
+  container.querySelectorAll('[data-sb-idx]').forEach(btn => {
+    btn.addEventListener('click', () => renderStoryboard(container, Number(btn.getAttribute('data-sb-idx'))));
+  });
+  container.querySelectorAll('[data-sb-step]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const delta = Number(btn.getAttribute('data-sb-step'));
+      const next = (activeIdx + delta + RING_STORYBOARD.length) % RING_STORYBOARD.length;
+      renderStoryboard(container, next);
+    });
+  });
+}
+
 function initProjectModal() {
   const modal = document.getElementById('specModal');
   const backdrop = document.getElementById('modalBackdrop');
   const closeBtn = document.getElementById('closeSpecModal');
+  const sbWrap = document.getElementById('storyboardWrap');
   if (!modal || !backdrop) return;
 
   const openModal = key => {
     const data = PROJECT_SPECS[key];
     if (!data) return;
-    modal.querySelector('[data-spec-eyebrow]').textContent = data.eyebrow;
-    modal.querySelector('[data-spec-title]').textContent = data.title;
-    modal.querySelector('[data-spec-meta]').textContent = data.meta;
-    modal.querySelector('[data-spec-thesis]').textContent = data.thesis;
-    modal.querySelector('[data-spec-problem]').textContent = data.problem;
-    modal.querySelector('[data-spec-system]').textContent = data.system;
-    modal.querySelector('[data-spec-output]').textContent = data.output;
+    const setEl = (sel, val) => { const el = modal.querySelector(sel); if (el) el.textContent = val; };
+    setEl('[data-spec-eyebrow]', data.eyebrow);
+    setEl('[data-spec-title]', data.title);
+    setEl('[data-spec-meta]', data.meta);
+    setEl('[data-spec-thesis]', data.thesis);
+    setEl('[data-spec-problem]', data.problem);
+    setEl('[data-spec-system]', data.system);
+    setEl('[data-spec-output]', data.output);
     const stackWrap = modal.querySelector('[data-spec-stack]');
     stackWrap.innerHTML = data.stack.map(t => `<span class="tag-chip">${t}</span>`).join('');
+
+    if (sbWrap) {
+      if (key === 'sonic_object' || key === 'tokyo_workshop') {
+        sbWrap.hidden = false;
+        renderStoryboard(sbWrap, 0);
+      } else {
+        sbWrap.hidden = true;
+        sbWrap.innerHTML = '';
+      }
+    }
 
     modal.classList.add('open');
     backdrop.classList.add('open');
